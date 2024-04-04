@@ -2,6 +2,17 @@
 History
 =======
 
+0.6.0 (YYYY-MM-DD)
+------------------
+
+* Moved the Git repository to https://github.com/zytedata/html-text.
+* Added official support for Python 3.9-3.12.
+* Removed support for Python 2.7 and 3.5-3.7.
+* Switched the ``lxml`` dependency to ``lxml[html_clean]`` to support
+  ``lxml >= 5.2.0``.
+* Switch from Travis CI to GitHub Actions.
+* CI improvements.
+
 0.5.2 (2020-07-22)
 ------------------
 
