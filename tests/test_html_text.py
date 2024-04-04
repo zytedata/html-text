@@ -2,7 +2,6 @@
 import glob
 import os
 
-import six
 import pytest
 
 from html_text import (extract_text, parse_html, cleaned_selector,
@@ -127,9 +126,6 @@ def test_selectors(all_options):
 
 
 def test_nbsp():
-    if six.PY2:
-        raise pytest.xfail("&nbsp; produces '\xa0' in Python 2, "
-                           "but ' ' in Python 3")
     html = "<h1>Foo&nbsp;Bar</h1>"
     assert extract_text(html) == "Foo Bar"
 
@@ -198,11 +194,6 @@ def _load_file(path):
 @pytest.mark.parametrize(['page', 'extracted'], _webpage_paths())
 def test_webpages(page, extracted):
     html = _load_file(page)
-    if not six.PY3:
-        # FIXME: &nbsp; produces '\xa0' in Python 2, but ' ' in Python 3
-        # this difference is ignored in this test.
-        # What is the correct behavior?
-        html = html.replace('&nbsp;', ' ')
     expected = _load_file(extracted)
     assert extract_text(html) == expected
 
