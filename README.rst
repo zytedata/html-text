@@ -11,12 +11,12 @@ HTML to Text
    :target: https://pypi.python.org/pypi/html-text
    :alt: Supported Python Versions
 
-.. image:: https://github.com/scrapinghub/html-text/workflows/tox/badge.svg
-   :target: https://github.com/scrapinghub/html-text/actions
+.. image:: https://github.com/zytedata/html-text/workflows/tox/badge.svg
+   :target: https://github.com/zytedata/html-text/actions
    :alt: Build Status
 
-.. image:: https://codecov.io/github/scrapinghub/html-text/coverage.svg?branch=master
-   :target: https://codecov.io/gh/scrapinghub/html-text
+.. image:: https://codecov.io/github/zytedata/html-text/coverage.svg?branch=master
+   :target: https://codecov.io/gh/zytedata/html-text
    :alt: Coverage report
 
 Extract text from HTML
