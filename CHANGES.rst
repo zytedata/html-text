@@ -2,7 +2,7 @@
 History
 =======
 
-0.6.0 (YYYY-MM-DD)
+0.6.0 (2024-04-04)
 ------------------
 
 * Moved the Git repository to https://github.com/zytedata/html-text.

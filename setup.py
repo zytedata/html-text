@@ -12,7 +12,7 @@ with open('CHANGES.rst') as history_file:
 
 setup(
     name='html_text',
-    version='0.5.2',
+    version='0.6.0',
     description="Extract text from HTML",
     long_description=readme + '\n\n' + history,
     author="Konstantin Lopukhin",
