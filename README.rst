@@ -7,13 +7,17 @@ HTML to Text
    :target: https://pypi.python.org/pypi/html-text
    :alt: PyPI Version
 
-.. image:: https://img.shields.io/travis/TeamHG-Memex/html-text.svg
-   :target: https://travis-ci.org/TeamHG-Memex/html-text
+.. image:: https://img.shields.io/pypi/pyversions/html-text.svg
+   :target: https://pypi.python.org/pypi/html-text
+   :alt: Supported Python Versions
+
+.. image:: https://github.com/scrapinghub/html-text/workflows/tox/badge.svg
+   :target: https://github.com/scrapinghub/html-text/actions
    :alt: Build Status
 
-.. image:: http://codecov.io/github/TeamHG-Memex/soft404/coverage.svg?branch=master
-   :target: http://codecov.io/github/TeamHG-Memex/html-text?branch=master
-   :alt: Code Coverage
+.. image:: https://codecov.io/github/scrapinghub/html-text/coverage.svg?branch=master
+   :target: https://codecov.io/gh/scrapinghub/html-text
+   :alt: Coverage report
 
 Extract text from HTML
 
