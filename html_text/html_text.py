@@ -218,6 +218,12 @@ def extract_text(html,
     """
     if html is None:
         return ''
+    no_content_nodes = (
+        lxml.html.HtmlComment,
+        lxml.html.HtmlProcessingInstruction
+    )
+    if isinstance(html, no_content_nodes):
+        return ''
     cleaned = _cleaned_html_tree(html)
     return etree_to_text(
         cleaned,

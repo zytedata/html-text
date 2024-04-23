@@ -2,6 +2,7 @@
 import glob
 import os
 
+import lxml.html
 import pytest
 
 from html_text import (extract_text, parse_html, cleaned_selector,
@@ -50,6 +51,20 @@ def test_empty(all_options):
 
 def test_comment(all_options):
     assert extract_text(u"<!-- hello world -->", **all_options) == ''
+
+
+def test_comment_fragment(all_options):
+    node = lxml.html.fragment_fromstring("<!-- hello world -->")
+    assert extract_text(node, **all_options) == ''
+
+
+def test_processing_instruction(all_options):
+    assert extract_text('<?dbfo label-width="width"?>', **all_options) == ''
+
+
+def test_processing_instruction_fragment(all_options):
+    node = lxml.html.fragment_fromstring('<?dbfo label-width="width"?>')
+    assert extract_text(node, **all_options) == ''
 
 
 def test_extract_text_from_tree(all_options):
