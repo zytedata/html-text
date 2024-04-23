@@ -2,6 +2,10 @@
 History
 =======
 
+0.6.1 (TBD)
+-----------
+* Fixed HTML comment and processing instruction handling.
+
 0.6.0 (2024-04-04)
 ------------------
 
