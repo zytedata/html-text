@@ -20,7 +20,10 @@ setup(
     url='https://github.com/zytedata/html-text',
     packages=['html_text'],
     include_package_data=True,
-    install_requires=['lxml[html_clean]'],
+    install_requires=[
+        'lxml',
+        'lxml-html-clean',
+    ],
     license="MIT license",
     zip_safe=False,
     classifiers=[
