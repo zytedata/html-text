@@ -22,7 +22,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'lxml',
-        'lxml-html-clean'
+        'lxml-html-clean',
     ],
     license="MIT license",
     zip_safe=False,
