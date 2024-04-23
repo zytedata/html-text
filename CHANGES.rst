@@ -2,6 +2,12 @@
 History
 =======
 
+0.6.1 (2024-04-23)
+------------------
+* Fixed HTML comment and processing instruction handling.
+* Use ``lxml-html-clean`` instead of ``lxml[html_clean]`` in setup.py,
+  to avoid https://github.com/jazzband/pip-tools/issues/2004
+
 0.6.0 (2024-04-04)
 ------------------
 
