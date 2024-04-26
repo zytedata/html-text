@@ -214,3 +214,23 @@ def test_webpages(page, extracted):
 
     tree = cleaner.clean_html(parse_html(html))
     assert etree_to_text(tree) == expected
+
+
+def test_deep_html():
+    """ Make sure we don't crash due to recursion limit.
+    """
+    # Build a deep tree manually as default parser would only allow
+    # for 255 depth, but deeper trees are possible with other parsers
+    n = 5000
+    parent = root = None
+    for _ in range(n):
+        el = lxml.html.Element('div')
+        el.text = 'foo'
+        if parent is None:
+            root = el
+            parent = el
+        else:
+            parent.append(el)
+            parent = el
+
+    assert extract_text(root) == ('foo\n' * n).strip()
