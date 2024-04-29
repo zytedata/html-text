@@ -88,13 +88,9 @@ def etree_to_text(tree,
 
     _NEWLINE = object()
     _DOUBLE_NEWLINE = object()
+    prev = _DOUBLE_NEWLINE  # _NEWLINE, _DOUBLE_NEWLINE or content of the previous chunk (str)
 
-    class Context:
-        """ workaround for missing `nonlocal` in Python 2 """
-        # _NEWLINE, _DOUBLE_NEWLINE or content of the previous chunk (str)
-        prev = _DOUBLE_NEWLINE
-
-    def should_add_space(text, prev):
+    def should_add_space(text):
         """ Return True if extra whitespace should be added before text """
         if prev in {_NEWLINE, _DOUBLE_NEWLINE}:
             return False
@@ -105,43 +101,43 @@ def etree_to_text(tree,
                 return False
         return True
 
-    def get_space_between(text, prev):
+    def get_space_between(text):
         if not text:
             return ' '
-        return ' ' if should_add_space(text, prev) else ''
+        return ' ' if should_add_space(text) else ''
 
-    def add_newlines(tag, context):
+    def add_newlines(tag):
+        nonlocal prev
         if not guess_layout:
             return
-        prev = context.prev
         if prev is _DOUBLE_NEWLINE:  # don't output more than 1 blank line
             return
         if tag in double_newline_tags:
-            context.prev = _DOUBLE_NEWLINE
             chunks.append('\n' if prev is _NEWLINE else '\n\n')
+            prev = _DOUBLE_NEWLINE
         elif tag in newline_tags:
-            context.prev = _NEWLINE
             if prev is not _NEWLINE:
                 chunks.append('\n')
+            prev = _NEWLINE
 
-    def add_text(text_content, context):
+    def add_text(text_content):
+        nonlocal prev
         text = _normalize_whitespace(text_content) if text_content else ''
         if not text:
             return
-        space = get_space_between(text, context.prev)
+        space = get_space_between(text)
         chunks.extend([space, text])
-        context.prev = text_content
+        prev = text_content
 
     # Extract text from the ``tree``: fill ``chunks`` variable
-    context = Context()
     for event, el in lxml.etree.iterwalk(tree, events=('start', 'end')):
         if event == 'start':
-            add_newlines(el.tag, context)
-            add_text(el.text, context)
+            add_newlines(el.tag)
+            add_text(el.text)
         elif event == 'end':
-            add_newlines(el.tag, context)
+            add_newlines(el.tag)
             if el is not tree:
-                add_text(el.tail, context)
+                add_text(el.tail)
 
     return ''.join(chunks).strip()
 
