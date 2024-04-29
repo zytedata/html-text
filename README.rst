@@ -127,9 +127,3 @@ this library gives you plain text that you can later feed into a standard text
 classification pipeline.
 If you feel that you need html structure as well, check out
 `webstruct <http://webstruct.readthedocs.io/en/latest/>`_ library.
-
-----
-
-.. image:: https://hyperiongray.s3.amazonaws.com/define-hg.svg
-	:target: https://www.hyperiongray.com/?pk_campaign=github&pk_kwd=html-text
-	:alt: define hyperiongray
