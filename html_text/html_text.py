@@ -132,17 +132,17 @@ def etree_to_text(tree,
         chunks.extend([space, text])
         context.prev = text_content
 
-    def traverse_text_fragments(tree, context, handle_tail=True):
-        """ Extract text from the ``tree``: fill ``chunks`` variable """
-        add_newlines(tree.tag, context)
-        add_text(tree.text, context)
-        for child in tree:
-            traverse_text_fragments(child, context)
-        add_newlines(tree.tag, context)
-        if handle_tail:
-            add_text(tree.tail, context)
+    # Extract text from the ``tree``: fill ``chunks`` variable
+    context = Context()
+    for event, el in lxml.etree.iterwalk(tree, events=('start', 'end')):
+        if event == 'start':
+            add_newlines(el.tag, context)
+            add_text(el.text, context)
+        elif event == 'end':
+            add_newlines(el.tag, context)
+            if el is not tree:
+                add_text(el.tail, context)
 
-    traverse_text_fragments(tree, context=Context(), handle_tail=False)
     return ''.join(chunks).strip()
 
 
