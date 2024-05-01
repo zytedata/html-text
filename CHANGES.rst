@@ -2,6 +2,10 @@
 History
 =======
 
+0.6.2 (2024-05-01)
+------------------
+* Support deeper trees by using iteration instead of recursion.
+
 0.6.1 (2024-04-23)
 ------------------
 * Fixed HTML comment and processing instruction handling.
