@@ -2,7 +2,7 @@
 History
 =======
 
-0.6.2 (2024-??-??)
+0.6.2 (2024-05-01)
 ------------------
 * Support deeper trees by using iteration instead of recursion.
 
