@@ -15,6 +15,7 @@ setup(
     version='0.6.2',
     description="Extract text from HTML",
     long_description=readme + '\n\n' + history,
+    long_description_content_type="text/x-rst",
     author="Konstantin Lopukhin",
     author_email='kostia.lopuhin@gmail.com',
     url='https://github.com/zytedata/html-text',
@@ -38,6 +39,4 @@ setup(
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
     ],
-    test_suite='tests',
-    tests_require=['pytest'],
 )
