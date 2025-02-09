@@ -17,6 +17,11 @@ replace = "__version__ = \"{new_version}\""
 [tool.coverage.run]
 branch = true
 
+[tool.coverage.report]
+exclude_also = [
+    "if TYPE_CHECKING:",
+]
+
 [[tool.mypy.overrides]]
 module = "tests.*"
 check_untyped_defs = true
