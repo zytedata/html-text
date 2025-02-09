@@ -37,7 +37,7 @@ jobs:
         python -m pip install tox
     - name: tox
       run: |
-        tox -e ${{ matrix.toxenv || 'py' }}
+        tox -e ${{ matrix.env || 'py' }}
     - name: coverage
       uses: codecov/codecov-action@v5
       with:
