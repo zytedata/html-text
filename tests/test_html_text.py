@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pathlib import Path
 
 import lxml.html
@@ -222,7 +224,7 @@ def test_personalize_newlines_sets():
     assert text == "text\n\nmore\n\nand more text\n\nand some more"
 
 
-def _webpage_paths():
+def _webpage_paths() -> list[tuple[Path, Path]]:
     webpages = sorted((ROOT / "test_webpages").glob("*.html"))
     extracted = sorted((ROOT / "test_webpages").glob("*.txt"))
     return list(zip(webpages, extracted))

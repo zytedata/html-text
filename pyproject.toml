@@ -17,6 +17,11 @@ replace = "__version__ = \"{new_version}\""
 [tool.coverage.run]
 branch = true
 
+[[tool.mypy.overrides]]
+module = "tests.*"
+check_untyped_defs = true
+allow_untyped_defs = true
+
 [tool.ruff.lint]
 extend-select = [
     # flake8-bugbear
