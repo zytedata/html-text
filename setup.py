@@ -9,7 +9,7 @@ history = Path("CHANGES.rst").read_text(encoding="utf-8")
 
 setup(
     name="html_text",
-    version="0.6.2",
+    version="0.7.0",
     description="Extract text from HTML",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",

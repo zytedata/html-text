@@ -2,7 +2,7 @@
 History
 =======
 
-0.7.0 (YYYY-MM-DD)
+0.7.0 (2025-02-10)
 ------------------
 * Removed support for Python 3.8.
 * Added support for Python 3.13.
