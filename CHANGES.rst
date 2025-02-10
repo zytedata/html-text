@@ -2,6 +2,13 @@
 History
 =======
 
+0.7.0 (YYYY-MM-DD)
+------------------
+* Removed support for Python 3.8.
+* Added support for Python 3.13.
+* Added type hints and ``py.typed``.
+* CI improvements.
+
 0.6.2 (2024-05-01)
 ------------------
 * Support deeper trees by using iteration instead of recursion.
