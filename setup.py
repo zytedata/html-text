@@ -17,6 +17,9 @@ setup(
     author_email="kostia.lopuhin@gmail.com",
     url="https://github.com/zytedata/html-text",
     packages=["html_text"],
+    package_data={
+        "html_text": ["py.typed"],
+    },
     include_package_data=True,
     install_requires=[
         "lxml",
