@@ -10,3 +10,14 @@ from .html_text import (
     parse_html,
     selector_to_text,
 )
+
+__all__ = (
+    "DOUBLE_NEWLINE_TAGS",
+    "NEWLINE_TAGS",
+    "cleaned_selector",
+    "cleaner",
+    "etree_to_text",
+    "extract_text",
+    "parse_html",
+    "selector_to_text",
+)
