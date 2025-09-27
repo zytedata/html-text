@@ -29,10 +29,16 @@ allow_untyped_defs = true
 
 [tool.ruff.lint]
 extend-select = [
+    # flake8-builtins
+    "A",
+    # flake8-async
+    "ASYNC",
     # flake8-bugbear
     "B",
     # flake8-comprehensions
     "C4",
+    # flake8-commas
+    "COM",
     # pydocstyle
     "D",
     # flake8-future-annotations
@@ -87,6 +93,8 @@ extend-select = [
     "YTT",
 ]
 ignore = [
+    # Trailing comma missing
+    "COM812",
     # Missing docstring in public module
     "D100",
     # Missing docstring in public class
@@ -141,12 +149,10 @@ ignore = [
     "RUF012",
     # Use of `assert` detected
     "S101",
-    # Using lxml to parse untrusted data is known to be vulnerable to XML attacks
-    "S320",
 ]
 
-[tool.ruff.lint.per-file-ignores]
-"html_text/__init__.py" = ["F401"]
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
