@@ -28,6 +28,7 @@ dependencies = [
     "lxml",
     "lxml-html-clean",
 ]
+requires-python = ">=3.9"
 
 [project.urls]
 Homepage = "https://github.com/zytedata/html-text"
