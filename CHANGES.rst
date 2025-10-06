@@ -2,7 +2,7 @@
 History
 =======
 
-0.7.1 (unreleased)
+0.7.1 (2025-10-06)
 ------------------
 * Added support for Python 3.14.
 * Explicitly re-export public names.
