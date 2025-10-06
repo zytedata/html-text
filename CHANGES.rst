@@ -2,6 +2,13 @@
 History
 =======
 
+0.7.1 (unreleased)
+------------------
+* Added support for Python 3.14.
+* Explicitly re-export public names.
+* Migrated the build system to ``hatchling``.
+* CI improvements.
+
 0.7.0 (2025-02-10)
 ------------------
 * Removed support for Python 3.8.
