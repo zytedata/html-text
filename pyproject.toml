@@ -1,13 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "html-text"
+dynamic = ["version"]
+description = "Extract text from HTML"
+readme = "README.rst"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Konstantin Lopukhin", email = "kostia.lopuhin@gmail.com" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "lxml",
+    "lxml-html-clean",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/zytedata/html-text"
+
 [tool.bumpversion]
 current_version = "0.7.0"
 commit = true
 tag = true
 tag_name = "{new_version}"
-
-[[tool.bumpversion.files]]
-filename = "setup.py"
-search = "version=\"{current_version}\""
-replace = "version=\"{new_version}\""
 
 [[tool.bumpversion.files]]
 filename = "html_text/__init__.py"
@@ -17,10 +47,19 @@ replace = "__version__ = \"{new_version}\""
 [tool.coverage.run]
 branch = true
 
-[tool.coverage.report]
-exclude_also = [
-    "if TYPE_CHECKING:",
+[tool.hatch.version]
+path = "html_text/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/html_text",
+    "/tests",
+    "/CHANGES.rst",
+    "/tox.ini",
 ]
+
+[tool.mypy]
+strict = true
 
 [[tool.mypy.overrides]]
 module = "tests.*"
@@ -29,10 +68,16 @@ allow_untyped_defs = true
 
 [tool.ruff.lint]
 extend-select = [
+    # flake8-builtins
+    "A",
+    # flake8-async
+    "ASYNC",
     # flake8-bugbear
     "B",
     # flake8-comprehensions
     "C4",
+    # flake8-commas
+    "COM",
     # pydocstyle
     "D",
     # flake8-future-annotations
@@ -87,6 +132,8 @@ extend-select = [
     "YTT",
 ]
 ignore = [
+    # Trailing comma missing
+    "COM812",
     # Missing docstring in public module
     "D100",
     # Missing docstring in public class
@@ -141,12 +188,10 @@ ignore = [
     "RUF012",
     # Use of `assert` detected
     "S101",
-    # Using lxml to parse untrusted data is known to be vulnerable to XML attacks
-    "S320",
 ]
 
-[tool.ruff.lint.per-file-ignores]
-"html_text/__init__.py" = ["F401"]
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
