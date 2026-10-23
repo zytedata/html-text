@@ -24,7 +24,7 @@ jobs:
               TOXENV: py39-parsel
           - python-version: "3.9"
             env:
-              TOXENV: pinned
+              TOXENV: min
 
     steps:
     - uses: actions/checkout@v5
