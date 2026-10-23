@@ -227,7 +227,7 @@ def test_personalize_newlines_sets():
 def _webpage_paths() -> list[tuple[Path, Path]]:
     webpages = sorted((ROOT / "test_webpages").glob("*.html"))
     extracted = sorted((ROOT / "test_webpages").glob("*.txt"))
-    return list(zip(webpages, extracted))
+    return list(zip(webpages, extracted, strict=True))
 
 
 @pytest.mark.parametrize(("page", "extracted"), _webpage_paths())
