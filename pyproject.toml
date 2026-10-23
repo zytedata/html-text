@@ -25,8 +25,8 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
-    "lxml",
-    "lxml-html-clean",
+    "lxml>=4.6.0",
+    "lxml-html-clean>=0.1.0",
 ]
 requires-python = ">=3.9"
 
